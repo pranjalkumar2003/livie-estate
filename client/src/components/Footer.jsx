@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
         <hr className='flex-grow border-t border-slate-600'/> 
-        <div className='bg-slate-700 text-center p-3 sm:pb-4 sm:text-xl border-slate-900'>
+        <div className='bg-slate-700 text-center p-3 sm:pb-4 sm:text-xl border-slate-900 select-none'>
           Copyright &#169; 2024 by Pranjal Kumar Singh. All Rights Reserved.
         </div>
       </footer>
