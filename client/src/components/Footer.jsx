@@ -6,7 +6,7 @@ import { FiMail } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col bottom-0 h-dvh">
       <div className="flex-grow">
         {/* Your main content goes here */}
       </div>

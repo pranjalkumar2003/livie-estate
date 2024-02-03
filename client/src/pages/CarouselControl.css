@@ -1,0 +1,10 @@
+.carousel .carousel-status,
+.carousel .thumbs,
+.carousel.carousel-slider .control-arrow {
+    display: none;
+}
+
+.carousel .control-dots .dot {
+    width: 1rem !important;
+    height: 1rem !important;
+}

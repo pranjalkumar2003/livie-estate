@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
-import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 import {
     FaBath,
@@ -15,9 +12,11 @@ import {
     FaShare,
   } from 'react-icons/fa';
   import Contact from '../components/Contact';
+  import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+  import { Carousel } from 'react-responsive-carousel';
+  import './CarouselControl.css';
 
 export default function Listing() {
-  SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -56,19 +55,19 @@ export default function Listing() {
       )}
       {listing && !loading && !error && (
         <div >
-          <Swiper navigation className='relative z-10 '>
+          <Carousel autoPlay="true" showArrows="true" infiniteLoop="true" showThumbs={false} >
             {listing.imageUrls.map((url) => (
-              <SwiperSlide key={url}>
                 <div
+                  key={url}
                   className='h-[550px]'
                   style={{
                     background: `url(${url}) center no-repeat`,
                     backgroundSize: 'cover',
                   }}
                 ></div>
-              </SwiperSlide>
+           
             ))}
-          </Swiper>
+          </Carousel>
 
           <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
             <FaShare

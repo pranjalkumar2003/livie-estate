@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import SwiperCore from 'swiper';
-import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import './CarouselControl.css';
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
-  SwiperCore.use([Navigation]);
   
   useEffect(() => {
     const fetchOfferListings = async () => {
@@ -68,11 +66,11 @@ export default function Home() {
       </div>
 
       {/* swiper */}
-      <Swiper navigation>
+      <Carousel autoPlay="true" showArrows="true" infiniteLoop="true" showThumbs={false}  >
         {offerListings &&
           offerListings.length > 0 &&
           offerListings.map((listing) => (
-            <SwiperSlide>
+         
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
@@ -81,10 +79,10 @@ export default function Home() {
                 className='sm:h-[400px] lg:h-[500px] h-[200px]'
                 key={listing._id}
               ></div>
-            </SwiperSlide>
+         
           ))}
           
-      </Swiper>
+      </Carousel>
 
 
       <div className=' max-w-full max-h-full  flex flex-col gap-8 my-10'>
