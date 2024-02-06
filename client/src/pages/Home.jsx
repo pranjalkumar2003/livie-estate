@@ -57,12 +57,14 @@ export default function Home() {
           <br />
           Your dream home awaits.
         </div>
-        <Link
+       <div className='inline-block'>
+       <Link
           to={'/search'}
           className='text-sm sm:text-lg text-blue-800 font-bold hover:underline'
         >
           Let's get started...
         </Link>
+       </div>
       </div>
 
       {/* swiper */}
